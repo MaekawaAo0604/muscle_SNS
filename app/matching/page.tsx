@@ -140,10 +140,10 @@ export default function MatchingPage() {
     setFilters({
       ageMin: 18,
       ageMax: 65,
-      gender: undefined,
-      gymIds: undefined,
-      trainingLevel: undefined,
-      timeSlots: undefined
+      gender: undefined as string | undefined,
+      gymIds: [] as string[],
+      trainingLevel: undefined as string | undefined,
+      timeSlots: [] as string[]
     })
     setTimeout(() => {
       fetchPotentialMatches()
