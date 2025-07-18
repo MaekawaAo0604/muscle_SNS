@@ -38,10 +38,10 @@ export default function MatchingPage() {
   const [filters, setFilters] = useState({
     ageMin: 18,
     ageMax: 65,
-    gender: undefined,
-    gymIds: undefined,
-    trainingLevel: undefined,
-    timeSlots: undefined
+    gender: undefined as string | undefined,
+    gymIds: [] as string[],
+    trainingLevel: undefined as string | undefined,
+    timeSlots: [] as string[]
   })
 
   useEffect(() => {
@@ -66,11 +66,11 @@ export default function MatchingPage() {
       if (filters.ageMin !== 18) params.append('ageMin', filters.ageMin.toString())
       if (filters.ageMax !== 65) params.append('ageMax', filters.ageMax.toString())
       if (filters.gender) params.append('gender', filters.gender)
-      if (filters.gymIds) {
+      if (filters.gymIds.length > 0) {
         filters.gymIds.forEach(gymId => params.append('gymIds', gymId))
       }
       if (filters.trainingLevel) params.append('trainingLevel', filters.trainingLevel)
-      if (filters.timeSlots) {
+      if (filters.timeSlots.length > 0) {
         filters.timeSlots.forEach(timeSlot => params.append('timeSlots', timeSlot))
       }
       
